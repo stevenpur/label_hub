@@ -1,20 +1,51 @@
+h1 {
+    text-align: center;
+    /* Centers the text horizontally */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    /* Full height of the viewport */
+}
+
+.main-container {
+    display: flex;
+}
+
+.main-container div {
+    padding: 7px;
+}
+
+.column {
+    flex: 1;
+    /* Each column takes up an equal amount of space */
+    padding: 20px;
+    /* Adjust as needed */
+}
+
+#gallery {
+    flex-grow: 1;
+    /* Allows the gallery to take up the remaining space */
+    overflow-y: auto;
+    /* Enables scrolling within the gallery */
+}
+
 .slider-container {
-    overflow-x: auto;
-    /* Enable horizontal scrolling */
-    white-space: nowrap;
-    /* Ensure items are in a line */
-    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 250px);
+    /* Adjust the minmax values as needed */
+    grid-gap: 10px;
+    /* Adjust the gap between images */
+    /* Add other styling as needed */
 }
 
 .slider-container img {
-    display: inline-block;
-    /* Display images inline */
-    margin-right: 10px;
-    /* Add some space between images */
-    max-height: 200px;
-    /* Adjust height as needed */
-    width: auto;
-    /* Maintain aspect ratio */
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
 .selected-image {
@@ -30,11 +61,11 @@
 }
 
 .image-container img {
-    display: block;
+    /*display: block;*/
     /* Ensure the image takes up the whole line */
-    max-height: 200px;
+    height: auto;
     /* Adjust as needed */
-    width: auto;
+    max-width: 250px;
     /* Maintain aspect ratio */
 }
 
