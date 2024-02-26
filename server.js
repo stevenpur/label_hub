@@ -22,7 +22,7 @@ app.get('/get-saved-labels', (req, res) => {
 
 // Serve the static files
 // Assuming this external path is accessible by your server
-let externalImagesPath = '/users/doherty/imh310/capture24/camera/P001';
+let externalImagesPath = '/well/doherty/projects/datasets/capture24-original';
 app.use('/external-images', express.static(externalImagesPath));
 app.use(express.static(__dirname));
 
