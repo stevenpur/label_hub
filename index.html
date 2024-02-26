@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Image Gallery</title>
+    <!-- Add any additional head content here -->
+</head>
+
+<body>
+    <h1>Capture24 Labelling Hub</h1>
+    <!--select individuals-->
+    <div id="indvidual-controls">
+        <select id="individual-selector">
+        </select>
+    </div>
+
+    <!--input field for quick annotation-->
+    <div id="quick-annotation">
+        <form id="quick-annotation-form">
+            <label for="label-input">Quick Annotation:</label>
+            <input type="text" id="label-input">
+            <input type="submit" value="Submit" id="label-input-submit">
+        </form>
+    </div>
+
+    <!--drop down select menu for annotation selection-->
+    <div id="label-controls">
+        <select id="label-selector">
+            <option value="a">active not eating</option>
+            <option value="ae">active eating</option>
+            <option value="ame">active maybe eating</option>
+            <option value="s">sedantry not eating</option>
+            <option value="se">sedantry eating</option>
+            <option value="sme">sedantry maybe eating</option>
+            <option value="na">uncallable</option>
+            <!-- Add more options as needed -->
+        </select>
+        <button id="assign-label">Assign Label to Selected Images</button>
+    </div>
+
+    <!--progress bar to show image loaded-->
+    <div id="progress-controls">
+        <label>Downloading progress:</label>
+        <progress id="progress-bar" value="32" max="100"></progress>
+    </div>
+
+
+    <!--slider for image selection-->
+    <div id="gallery" class="slider-container">
+        <!-- Images will be loaded here -->
+    </div>
+
+    <!-- button to load saved labels-->
+    <div id="upload-controls">
+        <input type="file" id="upload-file-input" accept=".json">
+        <button id="load-button">Load File</button>
+    </div>
+
+    <!-- button to save labels -->
+    <div id="download-controls">
+        <button id="download-labels">Downlaod Labelled results</button>
+    </div>
+
+
+
+    <script src="script.js"></script><!-- Link to your JavaScript file -->
+</body>
+
+</html>

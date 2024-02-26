@@ -1,0 +1,61 @@
+.slider-container {
+    overflow-x: auto;
+    /* Enable horizontal scrolling */
+    white-space: nowrap;
+    /* Ensure items are in a line */
+    padding: 10px;
+}
+
+.slider-container img {
+    display: inline-block;
+    /* Display images inline */
+    margin-right: 10px;
+    /* Add some space between images */
+    max-height: 200px;
+    /* Adjust height as needed */
+    width: auto;
+    /* Maintain aspect ratio */
+}
+
+.selected-image {
+    border: 2px solid blue;
+    /* Example style for a selected image */
+}
+
+.image-container {
+    display: inline-block;
+    /* Display containers inline */
+    margin-right: 10px;
+    /* Space between image containers */
+}
+
+.image-container img {
+    display: block;
+    /* Ensure the image takes up the whole line */
+    max-height: 200px;
+    /* Adjust as needed */
+    width: auto;
+    /* Maintain aspect ratio */
+}
+
+.image-label {
+    display: block;
+    /* Ensure the label takes up the whole line below the image */
+    margin-top: 5px;
+    /* Space between image and label */
+    font-size: 14px;
+    /* Adjust as needed */
+    color: #333;
+    /* Adjust as needed */
+}
+
+.image-date {
+    display: block;
+    /* Ensure the label takes up the whole line below the image */
+    margin-top: 5px;
+    /* Space between image and label */
+    font-size: 14px;
+    /* Adjust as needed */
+    color: #333;
+    /* Adjust as needed */
+}
