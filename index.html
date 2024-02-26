@@ -3,6 +3,7 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <title>Image Gallery</title>
     <!-- Add any additional head content here -->
 </head>
@@ -21,7 +22,7 @@
 
             <!--progress bar to show image loaded-->
             <div id="progress-controls">
-                <label>Downloading progress:</label>
+                <label>Downloading images:</label>
                 <progress id="progress-bar" value="32" max="100"></progress>
             </div>
         </div>
@@ -38,6 +39,7 @@
 
             <!--drop down select menu for annotation selection-->
             <div id="label-controls">
+                <label for="label-selector">Select Label:</label>
                 <select id="label-selector">
                     <option value="a">active not eating</option>
                     <option value="ae">active eating</option>
