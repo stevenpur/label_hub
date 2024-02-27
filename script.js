@@ -50,6 +50,12 @@ function loadSingleImage(src, index, gallery, individual) {
         img.onload = () => resolve(img);
         img.onerror = () => reject(new Error(`Failed to load image ${src}`));
 
+        // listen for double click event
+        img.addEventListener('dblclick', function () {
+            // open the image in a new tab
+            window.open(img.src);
+        });
+
         // add the date to a image container
         const dateStr = img.src.split('/').pop().substring(17, 32);
         const date = convertDate(dateStr);
@@ -247,6 +253,14 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .catch(error => console.error('Error:', error));
     });*/
+
+    // listen to the slider for changing the image size
+    document.getElementById('img-size-slider').addEventListener('input', function (event) {
+        const size = event.target.value;
+        const container = document.querySelector('.slider-container');
+        container.style.gridTemplateColumns = `repeat(auto-fit, ${size}px)`
+    });
+
 
     // add the labels from the label input
     const labelForm = document.getElementById('quick-annotation');
