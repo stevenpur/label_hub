@@ -94,8 +94,22 @@ async function loadImages(individual) {
         gallery.innerHTML = ''; // Clear the gallery
 
         const response = await fetch('/images');
-        const images = await response.json();
+        const imagesUnSorted = await response.json();
+        // sort the images by date
+        const images = imagesUnSorted.sort((a, b) => {
+            // Extract date strings from each image
+            const dateStrA = a.substring(17, 32); // Adjusted for zero-based index
+            const dateStrB = b.substring(17, 32);
 
+            // Since the format "YYYYMMDD_HHMMSS" is lexicographically sortable, we can compare the strings directly
+            if (dateStrA < dateStrB) {
+                return -1;
+            } else if (dateStrA > dateStrB) {
+                return 1;
+            } else {
+                return 0;
+            }
+        });
         const cur_ind = document.getElementById('individual-selector').value;
         pgbar.max = images.length;
 
