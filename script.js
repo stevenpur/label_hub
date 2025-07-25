@@ -195,7 +195,7 @@ function applySavedLabel(img, imageName) {
 function setIndSelector() {
     // add the individual selector options (P001, P002, ... P020)
     const indSelector = document.getElementById('individual-selector');
-    const labels = Array.from({ length: 20 }, (_, i) => `P${(i + 1).toString().padStart(3, '0')}`);
+    const labels = Array.from({ length: 150 }, (_, i) => `P${(i + 1).toString().padStart(3, '0')}`);
     labels.forEach(label => {
         const option = document.createElement('option');
         option.value = label;

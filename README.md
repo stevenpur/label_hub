@@ -52,3 +52,16 @@ On your local machine, set up an SSH tunnel to the BMRC server for port forwardi
 
 **3. Access the Website:**
 Open a web browser on your local machine and navigate to http://localhost:8080
+
+## Limitations
+
+This application currently has the following limitations:
+
+- **Environment Dependency**: Requires BMRC account access and specific server environment setup
+- **Image Format Support**: Limited to common web-compatible image formats (JPEG, PNG, GIF)
+- **Single User Session**: Designed for single-user labeling sessions; concurrent multi-user access may cause conflicts
+- **Data Persistence**: Labels are stored locally in JSON format; no database integration for advanced querying or backup
+- **Network Access**: Requires SSH tunneling for remote access, which may introduce latency
+- **Browser Compatibility**: Optimized for modern browsers; legacy browser support not guaranteed
+- **Scalability**: Performance may degrade with very large image datasets (>10,000 images)
+- **Label Export**: Limited export options; currently supports JSON format only 
