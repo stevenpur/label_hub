@@ -11,12 +11,21 @@ Welcome to the Capture24 Labeling Project repository. This web application is de
 **Prerequisites:**
 - BMRC account with SSH access to image datasets
 - Go 1.19+ installed on your local machine
+- Node.js and npm installed on your local machine
 
 **Usage:**
-1. **Build the launcher:**
+1. **Clone and build:**
 ```bash
 git clone https://github.com/stevenpur/label_hub.git
 cd label_hub
+
+# Option A: Use the build script (recommended)
+./build.sh
+
+# Option B: Manual build steps
+npm install
+npm install -g pkg
+pkg server.js --targets node18-linux-x64 --output capture24-server
 go build -o capture24-launcher main.go
 ```
 
