@@ -27,6 +27,8 @@ type Config struct {
 	Host     string
 	Username string
 	Password string
+	KeyPath  string
+	UseKey   bool
 }
 
 func main() {
@@ -102,16 +104,38 @@ func getSSHConfig() Config {
 		Host:     host,
 		Username: username,
 		Password: password,
+		UseKey:   false,
 	}
 }
 
 // connectSSH creates an SSH connection using the provided config
 func connectSSH(config Config) (*ssh.Client, error) {
-	// Create SSH client configuration
+	// Create keyboard-interactive auth method for 2FA
+	keyboardInteractive := ssh.KeyboardInteractive(func(user, instruction string, questions []string, echos []bool) ([]string, error) {
+		answers := make([]string, len(questions))
+		for i, question := range questions {
+			fmt.Print(question + " ")
+			if echos[i] {
+				// Visible input
+				reader := bufio.NewReader(os.Stdin)
+				answer, _ := reader.ReadString('\n')
+				answers[i] = strings.TrimSpace(answer)
+			} else {
+				// Hidden input (like 2FA code)
+				answerBytes, _ := term.ReadPassword(int(syscall.Stdin))
+				answers[i] = string(answerBytes)
+				fmt.Println()
+			}
+		}
+		return answers, nil
+	})
+
+	// Create SSH client configuration with multiple auth methods
 	sshConfig := &ssh.ClientConfig{
 		User: config.Username,
 		Auth: []ssh.AuthMethod{
-			ssh.Password(config.Password),
+			ssh.Password(config.Password),    // Try password first
+			keyboardInteractive,             // Then handle 2FA prompts
 		},
 		HostKeyCallback: ssh.InsecureIgnoreHostKey(),
 		Timeout:         30 * time.Second,
