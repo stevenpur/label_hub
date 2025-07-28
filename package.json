@@ -2,7 +2,8 @@
   "name": "annot_browser",
   "version": "1.0.0",
   "description": "",
-  "main": "server_script.js",
+  "main": "server.js",
+  "bin": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
